@@ -10,6 +10,7 @@ class CppastTestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     requires = "cppast/master@%s/%s" % (username, channel)
     generators = "cmake"
+    default_options = ('cppast:compdb=True')
 
     def build(self):
         cmake = CMake(self)

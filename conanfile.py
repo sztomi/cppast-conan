@@ -22,11 +22,12 @@ class CppastConan(ConanFile):
         self.run("cmake --build . %s -- -j %d" % (cmake.build_config, tools.cpu_count()))
 
     def package(self):
-        self.copy("*.hpp", dst="include", src="cppast/include")
-        self.copy("*.hpp", dst="include", src="cppast/external/type_safe/include")
-        self.copy("*.hpp", dst="include", src="cppast/external/type_safe/external/debug_assert")
-        self.copy("*.lib", dst="lib", keep_path=False)
-        self.copy("*.a", dst="lib", keep_path=False)
+        self.copy("*.hpp",  dst="include", src="cppast/include")
+        self.copy("*.hpp",  dst="include", src="cppast/external/type_safe/include")
+        self.copy("*.hpp",  dst="include", src="cppast/external/type_safe/external/debug_assert")
+        self.copy("*.lib",  dst="lib", keep_path=False)
+        self.copy("*.a",    dst="lib", keep_path=False)
+        self.copy("*.json", dst="lib", keep_path=False)
 
     def package_info(self):
         self.cpp_info.libs = ["cppast", "_cppast_tiny_process"]
